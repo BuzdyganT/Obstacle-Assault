@@ -1,0 +1,14 @@
+
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+
+.idea/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.app
+*.iwyu.json

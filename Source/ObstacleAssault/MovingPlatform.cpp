@@ -15,13 +15,16 @@ AMovingPlatform::AMovingPlatform()
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Display, TEXT("MemberFloat: %f"), MemberFloat);
 }
 
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	
+	PlaceVector.X += moveSpeed * DeltaTime;
+	SetActorLocation(PlaceVector);
+
 
 }
 

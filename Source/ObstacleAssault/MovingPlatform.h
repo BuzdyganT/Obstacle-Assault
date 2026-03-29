@@ -27,4 +27,9 @@ public:
 	float MemberFloat = 10.0f;
 	UPROPERTY(VisibleAnywhere)
 	int MemberInt = 15;
+	UPROPERTY(EditAnywhere)
+	FVector PlaceVector = FVector(873.0f, -319.0f, 526.0f);
+	UPROPERTY(EditAnywhere)
+	float moveSpeed = 100.0f;
+
 };

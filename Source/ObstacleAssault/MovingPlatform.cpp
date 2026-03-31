@@ -11,10 +11,16 @@ AMovingPlatform::AMovingPlatform()
 
 }
 
+void MyTestFunction()
+{
+	UE_LOG(LogTemp,Display,TEXT("Test function"));
+}
+
 // Called when the game starts or when spawned
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+	MyTestFunction();
 }
 
 // Called every frame
@@ -23,7 +29,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	FVector CurrentLocation = GetActorLocation();
 	
-	CurrentLocation.X += MoveSpeed * DeltaTime;
+	CurrentLocation += PlatformVelocity * DeltaTime;
 	SetActorLocation(CurrentLocation);
 
 }

@@ -11,26 +11,39 @@ AMovingPlatform::AMovingPlatform()
 
 }
 
-void MyTestFunction()
+void MyTestFunction(float MyFloatParam, int MyIntParam)
 {
-	UE_LOG(LogTemp,Display,TEXT("Test function"));
+	UE_LOG(LogTemp,Display,TEXT("MyParams are: %f %d"), MyFloatParam, MyIntParam);
 }
 
 // Called when the game starts or when spawned
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
-	MyTestFunction();
+	MyTestFunction(14.0f, 214);
 }
 
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	MovePlatform(DeltaTime);
+	RotatePlatform(DeltaTime);
+}
+
+void AMovingPlatform::MovePlatform(float DeltaTime)
+{
 	FVector CurrentLocation = GetActorLocation();
 	
 	CurrentLocation += PlatformVelocity * DeltaTime;
 	SetActorLocation(CurrentLocation);
 
+}
+
+void AMovingPlatform::RotatePlatform(float DeltaTime)
+{
+	FRotator CurrentRotation = GetActorRotation();
+	CurrentRotation += PlatformRotation * DeltaTime;
+	SetActorRotation(CurrentRotation);
 }
 

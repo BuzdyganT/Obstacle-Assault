@@ -17,6 +17,8 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 	StartLocation = GetActorLocation();
+	int ReturnValue = MyTestFunction();
+	UE_LOG(LogTemp,Display,TEXT("ReturnValue: %d"),ReturnValue);
 	
 }
 
@@ -28,13 +30,21 @@ void AMovingPlatform::Tick(float DeltaTime)
 	RotatePlatform(DeltaTime);
 }
 
+int AMovingPlatform::MyTestFunction()
+{
+	
+	
+	return 1;
+}
+
+float AMovingPlatform::GetDistanceMoved()
+{
+	return FVector::Dist(StartLocation, GetActorLocation());
+}
+
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	FVector CurrentLocation = GetActorLocation();
-	
-	CurrentLocation += PlatformVelocity * DeltaTime;
-	SetActorLocation(CurrentLocation);
-	DistanceMoved = FVector::Dist(CurrentLocation, StartLocation);
+	DistanceMoved = GetDistanceMoved();
 	
 	if (DistanceMoved >= MoveDistance)
 	{
@@ -48,6 +58,13 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 		
 		PlatformVelocity = -PlatformVelocity;
 	} 
+	else
+	{
+		FVector CurrentLocation = GetActorLocation();
+	
+		CurrentLocation += PlatformVelocity * DeltaTime;
+		SetActorLocation(CurrentLocation);
+	}
 }
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)

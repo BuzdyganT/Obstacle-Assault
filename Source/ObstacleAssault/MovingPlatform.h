@@ -23,6 +23,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
+	int MyTestFunction();
+	float GetDistanceMoved();
 	void RotatePlatform(float DeltaTime);
 	void MovePlatform(float DeltaTime);
 	UPROPERTY(EditAnywhere);

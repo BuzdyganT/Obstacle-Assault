@@ -32,8 +32,6 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 int AMovingPlatform::MyTestFunction()
 {
-	
-	
 	return 1;
 }
 
@@ -69,8 +67,6 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	FRotator CurrentRotation = GetActorRotation();
-	CurrentRotation += PlatformRotation * DeltaTime;
-	SetActorRotation(CurrentRotation);
+	AddActorLocalRotation(PlatformRotation * DeltaTime);
 }
 

@@ -31,6 +31,7 @@ public:
 	FVector PlatformVelocity = FVector(0.0f,0.0f,0.0f);
 	UPROPERTY(EditAnywhere);
 	FRotator PlatformRotation = FRotator(0.0f,0.0f,0.0f);
+	
 	FVector StartLocation = FVector(0.0f,0.0f,0.0f);
 	UPROPERTY(VisibleAnywhere);
 	float DistanceMoved = 0.0f;

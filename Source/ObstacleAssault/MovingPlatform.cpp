@@ -67,6 +67,12 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	AddActorLocalRotation(PlatformRotation * DeltaTime);
-}
+	// 1. Obliczamy jak bardzo platforma ma się obrócić w tej klatce (jako zwykły FRotator)
+	FRotator DeltaRotator = PlatformRotation * DeltaTime;
 
+	// 2. Konwertujemy ten mały obrót na Kwaternion (FQuat)
+	FQuat QuatRotation = FQuat(DeltaRotator);
+
+	// 3. Dodajemy rotację używając Kwaternionu. To omija limit 90 stopni na osi Y!
+	AddActorLocalRotation(QuatRotation);
+}

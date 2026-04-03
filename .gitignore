@@ -12,3 +12,7 @@ Build/
 *.sdf
 *.app
 *.iwyu.json
+
+/Content/Asian_Village/
+/Content/Construction_VOL1/
+/Content/Survival_Character/
